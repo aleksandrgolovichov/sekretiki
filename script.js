@@ -50,13 +50,13 @@ btn.addEventListener('click', () => {
 
         // Клик на ДА
         yesBtn.addEventListener('click', () => {
-            window.location.href = "https://t.me"; // Твоя ссылка
+            window.location.href = "https://t.me"; // ссылка
         });
 
         // Клик на НЕТ
         noBtn.addEventListener('click', () => {
             const music = document.getElementById('sad-music');
-            music.play();
+            music.play(music/volume = 0.2);
             alert("Жаль, надеюсь что тебе понравилось, но я всё равно рад , что ты посмотрела до конца...");
         });
     }
