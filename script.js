@@ -23,60 +23,61 @@ let currentIndex = 0;
 reasons.sort(() => Math.random() - 0.5);
 
 const btn = document.getElementById('next-btn');
-const text = document.getElementById('reason-text');
-const img = document.getElementById('reason-img');
+const textElem = document.getElementById('reason-text');
+const imgElem = document.getElementById('reason-img');
 const controls = document.getElementById('controls');
 
 btn.addEventListener('click', () => {
     if (currentIndex < reasons.length) {
-        text.innerText = reasons[currentIndex].text;
-        img.src = reasons[currentIndex].img;
+        textElem.innerText = reasons[currentIndex].text;
+        imgElem.src = reasons[currentIndex].img;
         currentIndex++;
         btn.innerText = "Ещё одну?";
     } else {
-        // Финальный этап
-        text.innerHTML = "<strong>И самая главная причина:</strong><br>Ты мне очень нравишься! Это взаимно?";
-        img.src = "images/final.jpg"; // Поставь тут финальную картинку
+        textElem.innerHTML = "<strong>И самая главная причина:</strong><br>Ты мне очень нравишься! Это взаимно?";
+        imgElem.src = "images/final.jpg";
         btn.style.display = "none";
+        controls.innerHTML = '';
 
-        // кнопки Да / Нет
         const yesBtn = document.createElement('button');
         yesBtn.innerText = "Да ❤️";
+        yesBtn.style.margin = "5px";
+
         const noBtn = document.createElement('button');
         noBtn.innerText = "Нет 💔";
+        noBtn.style.margin = "5px";
 
         controls.appendChild(yesBtn);
         controls.appendChild(noBtn);
 
-        // Клик на ДА
         yesBtn.addEventListener('click', () => {
-            window.location.href = "https://t.me"; // ссылка
+            window.location.href = "https://t.me";
         });
 
-        // Клик на НЕТ
         noBtn.addEventListener('click', () => {
             const music = document.getElementById('sad-music');
-            music.play(music/volume = 0.2);
-            alert("Жаль, надеюсь что тебе понравилось, но я всё равно рад , что ты посмотрела до конца...");
+            if(music) {
+                music.volume = 0.2;
+                music.play().catch(e => console.log("Музыка заблокирована браузером"));
+            }
+            alert("Жаль, надеюсь что тебе понравилось...");
         });
     }
 });
 
-// Анимация сердечек
 function createHeart() {
     const heart = document.createElement('div');
     heart.className = 'heart';
     const kinds = ['❤️', '💖', '💗', '💓', '🌸'];
     heart.innerText = kinds[Math.floor(Math.random() * kinds.length)];
-    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.left = Math.random() * 95 + "vw";
     heart.style.fontSize = Math.random() * 20 + 15 + "px";
     heart.style.animationDuration = Math.random() * 2 + 3 + "s";
-    heart.style.opacity = Math.random();
     document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 5000);
+    setTimeout(() => heart.remove(), 4000);
 }
 
-setInterval(createHeart, 300);
+setInterval(createHeart, 400);
 
 
 
