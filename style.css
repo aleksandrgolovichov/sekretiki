@@ -44,6 +44,8 @@ html, body {
     justify-content: center;
 }
 
+
+
 button {
     background: linear-gradient(45deg, #ff4b2b, #ff416c);
     color: white;
@@ -56,7 +58,14 @@ button {
     box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
     transition: transform 0.2s;
     -webkit-tap-highlight-color: transparent;
+    display: inline-flex;     /* Делаем кнопку флекс-контейнером */
+    align-items: center;      /* Центрируем текст и эмодзи по вертикали внутри */
+    justify-content: center;   /* Центрируем по горизонтали */
+    vertical-align: middle;    /* Выравниваем сами кнопки относительно друг друга */
+    line-height: 1;           /* Убираем лишние отступы строк */
 }
+
+
 
 button:active {
     transform: scale(0.95);

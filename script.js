@@ -3,20 +3,22 @@ const reasons = [
     { text: "O, КОТИК!!!", img: "images/cat.jpg" },
     { text: "Мне нравится, как ты смеешься", img: "images/smile.jpg" },
     { text: "Πισουνακι", img: "images/znak.jpg" },
-    { text: "Ты очень красива с чокером на шее", img: "images/choker.jpg" },
+    { text: "Ты очень красива с чокером на шее", img: "images/choker.webp" },
     { text: "67, не будет", img: "images/znak.jpg" },
     { text: "Ты красиво одеваешься", img: "images/odeshda.jpg" },
     { text: "...", img: "images/leg.webp" },
     { text: "У тебя прекрасные глаза", img: "images/glaza.jpg" },
     { text: "ладно, будет", img: "images/68.webp" },
-    { text: "У тебя чуток ржавые волосы, и это прекрасно", img: "images/volosi.jpg" },
+    { text: "У тебя чуток ржавые волосы c фиолетовыми прядями, и это прекрасно", img: "images/volosi.jpg" },
     { text: "Мне нравится проводить с тобой время", img: "images/time.jpg" },
     { text: "Sigmo", img: "images/psix.jpg" },
     { text: "Спасибо за поддержку в любых ситуациях", img: "images/sup.jpg" },
-    { text: "Ты вдохновляешь меня становиться лучше", img: "images/inspiration.jpg" },
-    { text: "Ты всегда знаешь, что сказать в нужный момент", img: "images/words.jpg" },
+    { text: "Ты вдохновляешь меня становиться лучше", img: "images/star.jpg" },
+    { text: "Ты всегда знаешь, что сказать в нужный момент", img: "images/oorr.jpg" },
     { text: "Ты такая заботливая", img: "images/cering.jpg" },
     { text: "С тобой можно обсудить что угодно", img: "images/plesen.jpg" },
+    { text: "Ты красиво рисуешь", img: "images/kartina.jpg" },
+    { text: "У тебя присутствоет хорошое чутвство юмора", img: "images/jokes.jpg" },
 ];
 
 let currentIndex = 0;
@@ -34,14 +36,15 @@ btn.addEventListener('click', () => {
         currentIndex++;
         btn.innerText = "Ещё одну?";
     } else {
-        textElem.innerHTML = "<strong>И самая главная причина:</strong><br>Ты мне очень нравишься! Это взаимно?";
-        imgElem.src = "images/final.jpg";
+        textElem.innerHTML = "<strong>И самая главная причина:</strong>";
+        imgElem.src = "images/priznanie.jpg";
         btn.style.display = "none";
         controls.innerHTML = '';
 
         const yesBtn = document.createElement('button');
         yesBtn.innerText = "Да ❤️";
-        yesBtn.style.margin = "5px";
+        yesBtn.style.alignItems = "center";
+
 
         const noBtn = document.createElement('button');
         noBtn.innerText = "Нет 💔";
@@ -51,7 +54,7 @@ btn.addEventListener('click', () => {
         controls.appendChild(noBtn);
 
         yesBtn.addEventListener('click', () => {
-            window.location.href = "https://t.me";
+            window.location.href = "https://t.me/+F45eskEwUWUxZThi";
         });
 
         noBtn.addEventListener('click', () => {
